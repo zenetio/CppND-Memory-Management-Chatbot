@@ -33,6 +33,18 @@ Your goal is to use the course knowledge to optimize the ChatBot program from a 
 3. Compile: `cmake .. && make`
 4. Run it: `./membot`.
 
+## Build Instructions for Windows 10
+
+1. Download the wxWidgets binary from [here](https://github.com/wxWidgets/wxWidgets/releases/v3.1.1). Note that in the created structure you dont have the libraries yet.
+2. Open a DOS terminal and navigate to wxWidgets install directory. Go to build subdirectory and run the command `cmake ..` to create the configuration files.
+3. The build directory now has all the project files that you need to create and install the libraries. At this point you can use the MSBuild or the IDE to process the project files. I used the IDE.
+4. In VS IDE, select ALL_BUILD and then build
+5. In VS IDE, select INSTALL and build. Remember to annotate the path where wxWidgets is being installed.
+6. Now you can run cmake command with options or open cmake GUI to generate the project files. Probabily, in cmake GUI you will receive an error regarding missing wxWidgets path. Here you fill the annotated path.
+7. Now that you have the project files, just load the Visual Studio and launch the solution file to work with your memBot project.
+
+
+
 ## Project Task Details
 
 Currently, the program crashes when you close the window. There is a small bug hidden somewhere, which has something to do with improper memory management. So your first warm-up task will be to find this bug and remove it. This should familiarize you with the code and set you up for the rest of the upcoming tasks. Have fun debugging!
