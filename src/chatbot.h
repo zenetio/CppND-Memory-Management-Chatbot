@@ -2,6 +2,7 @@
 #define CHATBOT_H_
 
 #include <wx/bitmap.h>
+#include <memory>
 #include <string>
 
 class GraphNode; // forward declaration
@@ -30,6 +31,14 @@ public:
     //// STUDENT CODE
     ////
 
+    ChatBot(const ChatBot &other);             // copy constructor
+    ChatBot& operator=(const ChatBot &other);  // copy assignment
+    ChatBot(ChatBot &&other);                  // move constructor
+    ChatBot& operator=(ChatBot &&other);       // move assignment
+
+
+    ChatLogic* GetChatLogicHandle() { return _chatLogic; }
+    
     ////
     //// EOF STUDENT CODE
 
@@ -37,7 +46,7 @@ public:
     void SetCurrentNode(GraphNode *node);
     void SetRootNode(GraphNode *rootNode) { _rootNode = rootNode; }
     void SetChatLogicHandle(ChatLogic *chatLogic) { _chatLogic = chatLogic; }
-    wxBitmap *GetImageHandle() { return _image; }
+    wxBitmap *GetImageHandle() const { return _image; }
 
     // communication
     void ReceiveMessageFromUser(std::string message);
